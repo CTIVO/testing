@@ -1,0 +1,80 @@
+{
+  "database": {
+    "schema": {
+      "voices": {
+        "id": {
+          "type": "uuid",
+          "description": "The unique identifier for the voice"
+        },
+        "name": {
+          "type": "text",
+          "description": "The name of the cloned voice"
+        },
+        "description": {
+          "type": "text",
+          "description": "Description of the voice"
+        },
+        "language": {
+          "type": "text",
+          "description": "Language code (en, es, fr, etc.)"
+        },
+        "audio_files": {
+          "type": "jsonb",
+          "description": "Array of uploaded audio file URLs"
+        },
+        "samples_count": {
+          "type": "integer",
+          "description": "Number of audio samples used for training"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "description": "Creation timestamp"
+        },
+        "is_public": {
+          "type": "boolean",
+          "description": "Whether the voice is published to the community library"
+        },
+        "creator_username": {
+          "type": "text",
+          "description": "Username of the voice creator"
+        }
+      },
+      "tts_syntheses": {
+        "id": {
+          "type": "uuid",
+          "description": "The unique identifier for the TTS synthesis"
+        },
+        "voice_id": {
+          "type": "uuid",
+          "description": "Reference to the voice used"
+        },
+        "text": {
+          "type": "text",
+          "description": "The text that was synthesized"
+        },
+        "audio_url": {
+          "type": "text",
+          "description": "URL to the generated audio file"
+        },
+        "speed": {
+          "type": "numeric",
+          "description": "Speed multiplier used"
+        },
+        "pitch": {
+          "type": "numeric",
+          "description": "Pitch multiplier used"
+        },
+        "voice_name": {
+          "type": "text",
+          "description": "Name of the voice used"
+        },
+        "created_at": {
+          "type": "timestamptz",
+          "description": "Creation timestamp"
+        }
+      }
+    },
+    "instructions": "VoiceLabs is a TTS voice cloning app. Upload audio samples to clone voices, then use them to generate TTS. All audio files are stored as URLs and processed using websim's built-in TTS capabilities. Voices can be published to a community library for sharing."
+  }
+}
+
